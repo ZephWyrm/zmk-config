@@ -1749,7 +1749,7 @@
             >;
         };
 
-        layer_LeftRingy {;
+        layer_LeftRingy {
             label= "LRingy";
             bindings = <
                 &left_ringy_tap Q  &left_ringy_tap W  &left_ringy_tap E  &left_ringy_tap R  &left_ringy_tap T      &trans  &trans  &trans  &trans  &trans
