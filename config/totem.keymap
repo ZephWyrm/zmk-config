@@ -450,6 +450,8 @@
         euro_symbol: euro_symbol {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
             bindings = <&macro_press &kp LALT>
                      , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N2 &kp KP_N8>
                      , <&macro_release &kp LALT>;
