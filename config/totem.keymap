@@ -441,14 +441,16 @@
         };
 
         // Parenthesis/angle bracket morphs
-        parang_left: left_parenthesis_and_less_than {
+        parang_left: parang_left {
             compatible = "zmk,behavior-mod-morph";
+            label = "PARANG_LEFT";
             #binding-cells = <0>;
             bindings = <&kp LPAR>, <&kp LT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        parang_right: right_parenthesis_and_greater_than {
+        parang_right: parang_right {
             compatible = "zmk,behavior-mod-morph";
+            label = "PARANG_RIGHT";
             #binding-cells = <0>;
             bindings = <&kp RPAR>, <&kp GT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
