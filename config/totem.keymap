@@ -1722,7 +1722,7 @@
             label= "SYM";
             bindings = <
                                 &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                              &kp N6          &kp N7        &kp N8          &kp N9          &kp N0
-                                &none           &kp BSLH        &kp SQT         &trans          &kp LBKT                                            &kp RBKT        &trans        &kp EQUAL       &kp MINUS       &kp GRAVE
+                                &LCTRL          &kp BSLH        &kp SQT         &LSHFT          &kp LBKT                                            &kp RBKT        &RSHFT        &kp EQUAL       &kp MINUS       &kp GRAVE
                 &kp TAB         &kp HOME        &kp END         &kp LEFT        &kp RIGHT       &parang_left                                        &parang_right   &kp UP        &kp DOWN        &kp PG_UP       &kp PG_DN        &euro_symbol
                                                                                 &kp CAPS        &trans          &mo ADJ             &mo ADJ         &trans          &kp CAPS
             >;
@@ -1749,7 +1749,7 @@
             >;
         };
 
-        layer_LeftRingy {
+        layer_LeftRingy {;
             label= "LRingy";
             bindings = <
                 &left_ringy_tap Q  &left_ringy_tap W  &left_ringy_tap E  &left_ringy_tap R  &left_ringy_tap T      &trans  &trans  &trans  &trans  &trans
