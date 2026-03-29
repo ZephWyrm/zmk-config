@@ -114,7 +114,7 @@
 #define HOMEY_HOLDING_TIME (TAPPING_RESOLUTION + 90)
 #endif
 #ifndef INDEX_HOLDING_TIME
-#define INDEX_HOLDING_TIME (TAPPING_RESOLUTION + 40)
+#define INDEX_HOLDING_TIME (TAPPING_RESOLUTION - 10)  // 140ms - faster for frequent Shift usage
 #endif
 #ifndef MIDDY_HOLDING_TIME
 #define MIDDY_HOLDING_TIME (TAPPING_RESOLUTION + 60)
@@ -465,6 +465,51 @@
             bindings = <&macro_press &kp LALT>
                      , <&macro_tap &kp KP_N0 &kp KP_N1 &kp KP_N2 &kp KP_N8>
                      , <&macro_release &kp LALT>;
+        };
+
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+// THUMB LAYER-TAP BEHAVIORS WITH AUTO-REPEAT
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+        // Thumb layer-tap with auto-repeat: tap for key, hold for layer, tap-tap-hold for auto-repeat
+        lt_space_sym: lt_space_sym {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_SPACE_SYM";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;  // Enable "tap then hold" for auto-repeat
+            bindings = <&mo>, <&kp>;
+        };
+
+        lt_bspc_sym: lt_bspc_sym {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_BSPC_SYM";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        lt_del_nav: lt_del_nav {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_DEL_NAV";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        lt_ret_nav: lt_ret_nav {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_RET_NAV";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            bindings = <&mo>, <&kp>;
         };
 
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -1687,10 +1732,10 @@
             bindings = <&kp ESC>;
         };
 
-        // I+O = Enter
+        // C+V = Enter
         combo_enter {
             timeout-ms = <50>;
-            key-positions = <7 8>;
+            key-positions = <23 24>;
             bindings = <&kp RET>;
         };
     };
@@ -1704,7 +1749,7 @@
                           &kp Q                   &kp W                   &kp E                   &kp R                   &kp T                                                       &kp Y               &kp U                 &kp I                 &kp O                 &kp P
                           &LeftPinky(A, BASE)     &LeftRingy(S, BASE)     &LeftMiddy(D, BASE)     &LeftIndex(F, BASE)     &kp G                                                       &kp H               &RightIndex(J, BASE)  &RightMiddy(K, BASE)  &RightRingy(L, BASE)  &RightPinky(SEMI, BASE)
                 &kp MINUS &kp Z                   &kp X                   &kp C                   &kp V                   &kp B                                                       &kp N               &kp M                 &kp COMMA             &kp DOT               &kp FSLH                &kp SQT
-                                                                                                  &kp LEFT                &lt SYM SPACE       &lt NAV DEL           &lt NAV RET       &lt SYM BSPC        &kp RIGHT
+                                                                                                  &kp LEFT                &lt_space_sym SYM SPACE  &lt_del_nav NAV DEL    &lt_ret_nav NAV RET  &lt_bspc_sym SYM BSPC  &kp RIGHT
             >;
         };
 
